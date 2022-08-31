@@ -10,7 +10,7 @@ const main = async () => {
     // "contract_name"Contract.address gives the address of the deployed contract (Mainnet, testnet, local Blockchain address)
     console.log("Contract deployed to:", waveContract.address);
     // To see the address owner of person deploying this contract
-    console.log("COntract deployed by:", owner.address);
+    console.log("Contract deployed by:", owner.address);
 
     // Manually calling our functions in WavePortal.sol
     // First calling the function to grab the number of waves
@@ -22,6 +22,13 @@ const main = async () => {
     let waveTxn = await waveContract.wave();
     await waveTxn.wait();
     
+    waveCount = await waveContract.getTotalWaves();
+
+    // creating random wallet address for our smart contract interaction with local test enviornment.
+
+    waveTxn = await waveContract.connect(randomPerson).wave();
+    await waveTxn.wait();
+
     waveCount = await waveContract.getTotalWaves();
   };
 

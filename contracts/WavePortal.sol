@@ -15,11 +15,11 @@ contract WavePortal {
 
     function wave() public {
         totalWaves +=1;
-        console.log("%s has waved!", msg.sender);
+        console.log("%s has RSVPD!", msg.sender);
     }
 
     function getTotalWaves() public view returns (uint256) {
-        console.log("We have %d total waves!", totalWaves);
+        console.log("We have %d total rsvp!", totalWaves);
         return totalWaves;
     }
 }
